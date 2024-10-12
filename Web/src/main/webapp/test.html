@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width:400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm">
+        学号 <input type="text" name="sno" id="sno" onkeydown="return sno(event);"> <br>
+    </form>
+
+</body>
+<script>
+function sno(event) {
+    // 获取按键的数字代码
+    var keyCode = event.keyCode;
+
+    // 允许数字键（48-57是'0'-'9'的ASCII码）
+    // 允许退格键（8）、Tab键（9）、删除键（46）
+    if ((keyCode >= 48 && keyCode <= 57) || keyCode === 8 || keyCode === 9 || keyCode === 46) {
+        return true; // 允许按键默认行为
+    } else {
+        // 阻止非数字键的默认行为
+        event.preventDefault();
+        return false; // 阻止按键默认行为
+    }
+}
+</script>
+</html>
